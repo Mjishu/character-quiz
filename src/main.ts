@@ -1,8 +1,9 @@
 import './style.css'
+import data from "./data/alphabet.json" assert {type: "json"}
 
 class AlphabetQuiz {
   content: HTMLElement;
-  targetLanguage: LanguageOptions;
+  targetLanguage: Languages;
   alphabet: QuizItem[];
   progress: number;
   alphabetLength: number;
@@ -10,8 +11,9 @@ class AlphabetQuiz {
   targetSelector: HTMLElement;
   inputSelector: HTMLInputElement;
   inputSubmitSelector: HTMLElement;
+  currentQuiz: HTMLElement;
 
-  constructor (targetLanguage: LanguageOptions, alphabet: QuizItem[]) {
+  constructor (targetLanguage: Languages, alphabet: QuizItem[]) {
     this.content = document.querySelector("#app") as HTMLElement;
     this.targetLanguage = targetLanguage
     this.alphabet = alphabet
@@ -21,6 +23,7 @@ class AlphabetQuiz {
     this.targetSelector = document.querySelector("#target-character") as HTMLElement;
     this.inputSelector  = document.querySelector("#user-input") as HTMLInputElement;
     this.inputSubmitSelector = document.querySelector("#input-submit") as HTMLElement;
+    this.currentQuiz = document.querySelector("#current-quiz") as HTMLElement;
   }
 
   StartQuiz() {
@@ -28,12 +31,12 @@ class AlphabetQuiz {
     this.ClickChecker()
     this.progress = 0;
     this.ShowCurrentCharacter()
+    this.setCurrentQuiz()
   }
 
   KeyboardInputChecker() {
     document.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
-        console.log('ran kb')
         this.CheckAnswer();
       }
     });
@@ -42,7 +45,6 @@ class AlphabetQuiz {
   ClickChecker () {
     this.inputSubmitSelector.addEventListener("click", (e) => {
       e.preventDefault()
-      console.log("ran click")
       this.CheckAnswer();      
     })
   }
@@ -56,9 +58,10 @@ class AlphabetQuiz {
   }
 
   Answer() {
-    this.inputSelector.value = ""
     this.NextCharacter()
     this.ShowCurrentCharacter()
+    this.inputSelector.value = ""
+    console.log(this.progress)
   }
 
   _replay(popup: HTMLElement) {
@@ -71,8 +74,10 @@ class AlphabetQuiz {
     const scoreResult = document.createElement("h3")
     scoreResult.innerText = this.correct + "/" + this.alphabetLength;
     const close = document.createElement('button');
+    close.innerText = "Close"
     close.addEventListener("click", () => {popup.hidden = true})
     const replay = document.createElement('button');
+    replay.innerText = "Replay";
     replay.addEventListener('click', () => {this._replay(popup)})
     popup.append(scoreResult, close, replay)
     this.content.append(popup)
@@ -81,10 +86,10 @@ class AlphabetQuiz {
   CheckAnswer() {
     if (this.progress == this.alphabetLength) {
       this._showProgress();
-      console.log("reached")
       return 
     }
-
+    
+    console.log("reached")
     const userInput = this.inputSelector.value
     if (userInput == this.alphabet[this.progress].English) {
       this.Answer();
@@ -95,30 +100,22 @@ class AlphabetQuiz {
       this.Answer();
     }
   }
+
+  setCurrentQuiz() {
+    const quizName = document.createElement("h2")
+    quizName.innerText = this.targetLanguage.alphabets[0]
+    this.currentQuiz.appendChild(quizName);
+  }
+
 }
 
-const alphabet:QuizItem[] = [
-  {
-    "Target": "あ",
-    "English": "a"
-  },
-  {
-    "Target": "い",
-    "English": "i"
-  },
-  {
-    "Target": "う",
-    "English": "u"
-  },
-  {
-    "Target": "え",
-    "English": "e"
-  },
-  {
-    "Target": "お",
-    "English": "o"
-  },
- ]
 
-const Quiz = new AlphabetQuiz("jp", alphabet)
+
+const alphabet:QuizItem[] = data.jp.hiragana.vowels
+
+const japanese: Languages = {
+  Language: "Japanese", alphabets: ["Hiragana", "Katakana"]
+}
+
+const Quiz = new AlphabetQuiz(japanese, alphabet)
 Quiz.StartQuiz()

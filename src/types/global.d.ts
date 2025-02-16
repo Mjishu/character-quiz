@@ -6,7 +6,13 @@ global {
             Audio_src?: string;
       }
 
-      type LanguageOptions = "jp" | "kr" 
+      type LanguageOptions = "Japanese" | "Korean" 
+
+      type Languages = {
+            Language: LanguageOptions;
+            alphabets: string[];
+            flag_src?: string;
+      }
 }
 
 export {};

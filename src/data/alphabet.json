@@ -1,0 +1,302 @@
+{
+      "jp": {
+            "hiragana": {
+                  "vowels": [
+                        {
+                        "Target": "あ",
+                        "English": "a"
+                  },
+                  {
+                        "Target": "い",
+                        "English": "i"
+                  },
+                  {
+                        "Target": "う",
+                        "English": "u"
+                  },
+                  {
+                        "Target": "え",
+                        "English": "e"
+                  },
+                  {
+                        "Target": "お",
+                        "English": "o"
+                  }
+                  ],
+                  "basics": [
+                        {
+                              "Target": "か",
+                              "English": "ka"
+                        },
+                        {
+                              "Target": "き",
+                              "English": "ki"
+                        },
+                        {
+                              "Target": "く",
+                              "English": "ku"
+                        },
+                        {
+                              "Target": "け",
+                              "English": "ke"
+                        },
+                        {
+                              "Target": "こ",
+                              "English": "ko"
+                        },
+                        {
+                              "Target": "た",
+                              "English": "ta"
+                        },
+                        {
+                              "Target": "ち",
+                              "English": "chi"
+                        },
+                        {
+                              "Target": "つ",
+                              "English": "tsu"
+                        },
+                        {
+                              "Target": "て",
+                              "English": "te"
+                        },
+                        {
+                              "Target": "と",
+                              "English": "to"
+                        },
+                        {
+                              "Target": "さ",
+                              "English": "sa"
+                        },
+                        {
+                              "Target": "し",
+                              "English": "shi"
+                        },
+                        {
+                              "Target": "す",
+                              "English": "su"
+                        },
+                        {
+                              "Target": "せ",
+                              "English": "se"
+                        },
+                        {
+                              "Target": "そ",
+                              "English": "so"
+                        },
+                        {
+                              "Target": "な",
+                              "English": "na"
+                        },
+                        {
+                              "Target": "に",
+                              "English": "ni"
+                        },
+                        {
+                              "Target": "ぬ",
+                              "English": "nu"
+                        },
+                        {
+                              "Target": "ね",
+                              "English": "ne"
+                        },
+                        {
+                              "Target": "の",
+                              "English": "no"
+                        },
+                        {
+                              "Target": "は",
+                              "English": "ha"
+                        },
+                        {
+                              "Target": "ひ",
+                              "English": "hi"
+                        },
+                        {
+                              "Target": "ふ",
+                              "English": "fu"
+                        },
+                        {
+                              "Target": "へ",
+                              "English": "he"
+                        },
+                        {
+                              "Target": "ほ",
+                              "English": "ho"
+                        },
+                        {
+                              "Target": "ま",
+                              "English": "ma"
+                        },
+                        {
+                              "Target": "み",
+                              "English": "mi"
+                        },
+                        {
+                              "Target": "む",
+                              "English": "mu"
+                        },
+                        {
+                              "Target": "め",
+                              "English": "me"
+                        },
+                        {
+                              "Target": "も",
+                              "English": "mo"
+                        },
+                        {
+                              "Target": "や",
+                              "English": "ya"
+                        },
+                        {
+                              "Target": "ゆ",
+                              "English": "yu"
+                        },
+                        {
+                              "Target": "よ",
+                              "English": "yo"
+                        },
+                        {
+                              "Target": "ら",
+                              "English": "ra"
+                        },
+                        {
+                              "Target": "り",
+                              "English": "ri"
+                        },
+                        {
+                              "Target": "る",
+                              "English": "ru"
+                        },
+                        {
+                              "Target": "れ",
+                              "English": "re"
+                        },
+                        {
+                              "Target": "ろ",
+                              "English": "ro"
+                        },
+                        {
+                              "Target": "わ",
+                              "English": "wa"
+                        },
+                        {
+                              "Target": "を",
+                              "English": "wo"
+                        },
+                        {
+                              "Target": "ん", 
+                              "English": "n"
+                        }
+                  ],
+                  "dakuten": [
+            {
+            "Target": "が",
+            "English": "ga"
+            },
+            {
+            "Target": "ぎ",
+            "English": "gi"
+            },
+            {
+            "Target": "ぐ",
+            "English": "gu"
+            },
+            {
+            "Target": "げ",
+            "English": "ge"
+            },
+            {
+            "Target": "ご",
+            "English": "go"
+            },
+            {
+            "Target": "ざ",
+            "English": "za"
+            },
+            {
+            "Target": "じ",
+            "English": "ji"
+            },
+            {
+            "Target": "ず",
+            "English": "zu"
+            },
+            {
+            "Target": "ぜ",
+            "English": "ze"
+            },
+            {
+            "Target": "ぞ",
+            "English": "zo"
+            },
+            {
+            "Target": "だ",
+            "English": "da"
+            },
+            {
+            "Target": "ぢ",
+            "English": "ji"
+            },
+            {
+            "Target": "づ",
+            "English": "zu"
+            },
+            {
+            "Target": "で",
+            "English": "de"
+            },
+            {
+            "Target": "ど",
+            "English": "do"
+            },
+            {
+            "Target": "ば",
+            "English": "ba"
+            },
+            {
+            "Target": "び",
+            "English": "bi"
+            },
+            {
+            "Target": "ぶ",
+            "English": "bu"
+            },
+            {
+            "Target": "べ",
+            "English": "be"
+            },
+            {
+            "Target": "ぼ",
+            "English": "bo"
+            }
+                  ],
+            "handakuten": [
+                  {
+                  "Target": "ぱ",
+                  "English": "pa"
+                  },
+                  {
+                  "Target": "ぴ",
+                  "English": "pi"
+                  },
+                  {
+                  "Target": "ぷ",
+                  "English": "pu"
+                  },
+                  {
+                  "Target": "ぺ",
+                  "English": "pe"
+                  },
+                  {
+                  "Target": "ぽ",
+                  "English": "po"
+                  }
+            ]
+            },
+            "katakana": {
+                  
+            }
+      },
+      "kr": []
+}
