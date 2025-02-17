@@ -27,9 +27,10 @@ class AlphabetQuiz {
   }
 
   StartQuiz() {
+    this.progress = 0;
+    this.correct = 0;
     this.KeyboardInputChecker()
     this.ClickChecker()
-    this.progress = 0;
     this.ShowCurrentCharacter()
     this.setCurrentQuiz()
   }
@@ -58,15 +59,18 @@ class AlphabetQuiz {
   }
 
   Answer() {
+    this.inputSelector.value = ""
+    if (this.progress == this.alphabetLength - 1) {
+      this._showProgress();
+      return 
+    }
     this.NextCharacter()
     this.ShowCurrentCharacter()
-    this.inputSelector.value = ""
-    console.log(this.progress)
   }
 
   _replay(popup: HTMLElement) {
     popup.hidden = true;
-    this.StartQuiz();
+    window.location.reload();
   }
 
   _showProgress() {
@@ -83,22 +87,15 @@ class AlphabetQuiz {
     this.content.append(popup)
   }
 
-  CheckAnswer() {
-    if (this.progress == this.alphabetLength) {
-      this._showProgress();
-      return 
-    }
-    
-    console.log("reached")
+  CheckAnswer() {    
     const userInput = this.inputSelector.value
+    console.log(`said: ${userInput} was ${this.alphabet[this.progress].English}`)
     if (userInput == this.alphabet[this.progress].English) {
-      this.Answer();
       this.correct ++;
     } else {
-      // show a popup or something of the target character with information on it
-      alert("Incorrect!")
-      this.Answer();
+      console.warn("Incorrect!")
     }
+    this.Answer()
   }
 
   setCurrentQuiz() {
