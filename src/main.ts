@@ -21,6 +21,9 @@ class AlphabetQuiz {
   currentAlphabet: string;
   currentMaterial: string;
   alphabetData: QuizItem[]
+  languageSelect: HTMLElement;
+  alphabetSelect: HTMLElement;
+  materialSelect: HTMLElement;
 
   constructor (targetLanguage: Languages, alphabet: any, currentAlphabet: string) {
     this.content = document.querySelector("#app") as HTMLElement;
@@ -36,6 +39,9 @@ class AlphabetQuiz {
     this.currentQuiz = document.querySelector("#current-quiz") as HTMLElement;
     this.alphabetData = this.alphabet[this.targetLanguage.Language][this.currentAlphabet][this.currentMaterial]
     this.alphabetLength = this.alphabetData.length
+    this.languageSelect = document.querySelector("#language-select") as HTMLElement
+    this.alphabetSelect = document.querySelector("#alphabet-select") as HTMLElement
+    this.materialSelect = document.querySelector("#material-select") as HTMLElement
   }
   
   Initialize() {
@@ -44,6 +50,7 @@ class AlphabetQuiz {
     this.setCurrentLanguage()
     this.setCurrentAlphabet()
     this.setCurrentMaterial() 
+    this._eventListeners()
     this.StartQuiz()
   }
 
@@ -120,8 +127,24 @@ class AlphabetQuiz {
     this.Answer()
   }
 
+  // select the select from dom instead of credeating it eachtime
+
+  _eventListeners() {
+    this.languageSelect.addEventListener("change", (e) => {
+      this._updateCurrentLanguage((e.target as HTMLSelectElement).value)
+    })
+
+    this.alphabetSelect.addEventListener("change", (e) => {
+      this._updateCurrentAlphabet((e.target as HTMLSelectElement).value)
+    })
+
+    this.materialSelect.addEventListener("change", (e) => {
+      this._updateCurrentMaterial((e.target as HTMLSelectElement).value)
+    })
+  }
+
   setCurrentLanguage() {
-    const quizSelector = document.createElement("select")
+    this._removeChildren(this.languageSelect)
     const defaultOption = document.createElement("option")
     defaultOption.innerText = this.targetLanguage.Language
     for (let i = 0; i < Object.keys(alphabetData).length; i++) {
@@ -129,47 +152,33 @@ class AlphabetQuiz {
       const option = document.createElement("option")
       option.innerText = language;
       option.value = language;
-      quizSelector.append(option)
+      this.languageSelect.append(option)
     }
-    this.currentQuiz.appendChild(quizSelector);
 
-    quizSelector.addEventListener("change", (e) => {
-      this._updateCurrentLanguage((e.target as HTMLSelectElement).value)
-    })
   }
 
   setCurrentAlphabet() {
-    const quizSelector = document.createElement("select")
+    this._removeChildren(this.alphabetSelect)
     const defaultOption = document.createElement("option")
     defaultOption.innerText = this.currentAlphabet
     for (const alphabet of this.targetLanguage.alphabets) {
       const option = document.createElement("option")
       option.innerText = alphabet;
       option.value = alphabet;
-      quizSelector.append(option)
+      this.alphabetSelect.append(option)
     }
-    this.currentQuiz.appendChild(quizSelector);
-
-    quizSelector.addEventListener("change", (e) => {
-      this._updateCurrentAlphabet((e.target as HTMLSelectElement).value)
-    })
   }
 
   setCurrentMaterial() {
-    const quizSelector = document.createElement("select");
+    this._removeChildren(this.materialSelect)
     const defaultOption = document.createElement("option");
     defaultOption.innerText = this.targetLanguage.Parts[0];
     for (const item of this.targetLanguage.Parts) {
       const option = document.createElement("option")
       option.innerText = item;
       option.value = item;
-      quizSelector.append(option)
+      this.materialSelect.append(option)
     }
-    this.currentQuiz.appendChild(quizSelector);
-
-    quizSelector.addEventListener("change", (e) => {
-      this._updateCurrentMaterial((e.target as HTMLSelectElement).value)
-    })
   }
 
   _updateCurrentLanguage(name: string) {
@@ -193,6 +202,14 @@ class AlphabetQuiz {
     this.currentMaterial = name;
     this._updateData();
     this.StartQuiz();
+  }
+
+  _removeChildren(domElement: HTMLElement) {
+    let child = domElement.lastElementChild;
+    while (child) {
+      domElement.removeChild(child);
+      child = domElement.lastElementChild;
+    }
   }
 }
 
