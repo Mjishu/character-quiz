@@ -6,10 +6,11 @@ global {
             Audio_src?: string;
       }
 
-      type LanguageOptions = "Japanese" | "Korean" 
+      type LanguageOptions = "japanese" | "korean" 
 
       type Languages = {
             Language: LanguageOptions;
+            Parts: string[];
             alphabets: string[];
             flag_src?: string;
       }

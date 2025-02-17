@@ -1,5 +1,5 @@
 {
-      "jp": {
+      "japanese": {
             "hiragana": {
                   "vowels": [
                         {
@@ -295,8 +295,8 @@
             ]
             },
             "katakana": {
-                  
+
             }
       },
-      "kr": []
+      "korean": []
 }
