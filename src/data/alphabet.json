@@ -298,5 +298,66 @@
 
             }
       },
-      "korean": []
+      "korean": {
+            "hangul": {
+                  "vowels": [ 
+                        {
+                        "Target": "ㅏ",
+                        "English": "a"
+                      },
+                      {
+                        "Target": "ㅑ",
+                        "English": "ya"
+                      },
+                      {
+                        "Target": "ㅓ",
+                        "English": "eo"
+                      },
+                      {
+                        "Target": "ㅕ",
+                        "English": "yeo"
+                      },
+                      {
+                        "Target": "ㅗ",
+                        "English": "o"
+                      },
+                      {
+                        "Target": "ㅛ",
+                        "English": "yo"
+                      },
+                      {
+                        "Target": "ㅜ",
+                        "English": "u"
+                      },
+                      {
+                        "Target": "ㅠ",
+                        "English": "yu"
+                      },
+                      {
+                        "Target": "ㅡ",
+                        "English": "eu"
+                      },
+                      {
+                        "Target": "ㅣ",
+                        "English": "i"
+                      },
+                      {
+                        "Target": "ㅐ",
+                        "English": "ae"
+                      },
+                      {
+                        "Target": "ㅒ",
+                        "English": "yae"
+                      },
+                      {
+                        "Target": "ㅔ",
+                        "English": "e"
+                      },
+                      {
+                        "Target": "ㅖ",
+                        "English": "ye"
+                      }
+                  ]
+            }
+      }
 }

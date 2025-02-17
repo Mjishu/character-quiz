@@ -1,0 +1,12 @@
+{
+      "japanese" : {
+            "Language": "japanese", 
+            "alphabets": ["hiragana", "hatakana"], 
+            "Parts": ["vowels", "basics", "dakuten", "handakuten"]
+      },
+      "korean" : {
+            "Language": "korean",
+            "alphabets": ["hangul"],
+            "Parts": ["vowels", "basics"]
+      }
+}

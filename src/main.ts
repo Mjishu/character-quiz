@@ -1,5 +1,11 @@
 import './style.css'
-import data from "./data/alphabet.json" assert {type: "json"}
+import alphabetData from "./data/alphabet.json" assert {type: "json"}
+import languageData from "./data/language.json" assert {type: "json"}
+
+/** todo
+ * update alphabet and material when updating language
+ * add support for arabic, cyrillic, sanskrit, greek, devanagari, hebrew, farsi, thai, urdu 
+ */
 
 class AlphabetQuiz {
   content: HTMLElement;
@@ -23,18 +29,19 @@ class AlphabetQuiz {
     this.currentMaterial = targetLanguage.Parts[0]
     this.alphabet = alphabet
     this.progress = 0
-    this.alphabetLength = alphabet.length
     this.correct = 0
     this.targetSelector = document.querySelector("#target-character") as HTMLElement;
     this.inputSelector  = document.querySelector("#user-input") as HTMLInputElement;
     this.inputSubmitSelector = document.querySelector("#input-submit") as HTMLElement;
     this.currentQuiz = document.querySelector("#current-quiz") as HTMLElement;
     this.alphabetData = this.alphabet[this.targetLanguage.Language][this.currentAlphabet][this.currentMaterial]
+    this.alphabetLength = this.alphabetData.length
   }
-
+  
   Initialize() {
     this.KeyboardInputChecker()
     this.ClickChecker()
+    this.setCurrentLanguage()
     this.setCurrentAlphabet()
     this.setCurrentMaterial() 
     this.StartQuiz()
@@ -42,6 +49,7 @@ class AlphabetQuiz {
 
   _updateData() {
     this.alphabetData = this.alphabet[this.targetLanguage.Language][this.currentAlphabet][this.currentMaterial]
+    this.alphabetLength = this.alphabetData.length
   }
 
   StartQuiz() {
@@ -112,6 +120,24 @@ class AlphabetQuiz {
     this.Answer()
   }
 
+  setCurrentLanguage() {
+    const quizSelector = document.createElement("select")
+    const defaultOption = document.createElement("option")
+    defaultOption.innerText = this.targetLanguage.Language
+    for (let i = 0; i < Object.keys(alphabetData).length; i++) {
+      const language = Object.keys(alphabetData)[i]
+      const option = document.createElement("option")
+      option.innerText = language;
+      option.value = language;
+      quizSelector.append(option)
+    }
+    this.currentQuiz.appendChild(quizSelector);
+
+    quizSelector.addEventListener("change", (e) => {
+      this._updateCurrentLanguage((e.target as HTMLSelectElement).value)
+    })
+  }
+
   setCurrentAlphabet() {
     const quizSelector = document.createElement("select")
     const defaultOption = document.createElement("option")
@@ -146,6 +172,17 @@ class AlphabetQuiz {
     })
   }
 
+  _updateCurrentLanguage(name: string) {
+    this.targetLanguage =   languageData[name] as Languages
+    console.log(this.targetLanguage)
+    this.currentAlphabet = this.targetLanguage.alphabets[0]
+    console.log(this.currentAlphabet)
+    this.currentMaterial = this.targetLanguage.Parts[0]
+    console.log(this.currentMaterial)
+    this._updateData()
+    this.StartQuiz();
+  }
+
   _updateCurrentAlphabet(name: string) {
     this.currentAlphabet = name;
     this._updateData();
@@ -159,9 +196,5 @@ class AlphabetQuiz {
   }
 }
 
-const japanese: Languages = {
-  Language: "japanese", alphabets: ["hiragana", "hatakana"], Parts: ["vowels", "basics", "dakuten", 'handakuten']
-}
-
-const Quiz = new AlphabetQuiz(japanese, data, japanese.alphabets[0])
+const Quiz = new AlphabetQuiz(languageData["japanese"] as Languages, alphabetData, languageData.japanese.alphabets[0])
 Quiz.Initialize()
