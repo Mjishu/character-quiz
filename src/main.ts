@@ -9,6 +9,10 @@ import { Stored } from './stored';
  * add support for arabic, cyrillic, sanskrit, greek, devanagari, hebrew, farsi, thai, urdu 
  */
 
+function toggleLightMode() {
+  document.body.classList.toggle("dark-mode");
+}
+
 class AlphabetQuiz {
   content: HTMLElement;
   targetLanguage: Languages;
@@ -26,6 +30,7 @@ class AlphabetQuiz {
   languageSelect: HTMLElement;
   alphabetSelect: HTMLElement;
   materialSelect: HTMLElement;
+  displayToggle: HTMLElement;
 
   constructor (targetLanguage: Languages, alphabet: any, currentAlphabet: string) {
     this.content = document.querySelector("#app") as HTMLElement;
@@ -44,6 +49,7 @@ class AlphabetQuiz {
     this.languageSelect = document.querySelector("#language-select") as HTMLElement
     this.alphabetSelect = document.querySelector("#alphabet-select") as HTMLElement
     this.materialSelect = document.querySelector("#material-select") as HTMLElement
+    this.displayToggle = document.querySelector("#toggle-display") as HTMLElement
   }
   
   Initialize() {
@@ -142,6 +148,10 @@ class AlphabetQuiz {
 
     this.materialSelect.addEventListener("change", (e) => {
       this._updateCurrentMaterial((e.target as HTMLSelectElement).value)
+    })
+
+    this.displayToggle.addEventListener("click", () => {
+      toggleLightMode();
     })
   }
 
