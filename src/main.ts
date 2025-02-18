@@ -1,9 +1,11 @@
 import './style.css'
 import alphabetData from "./data/alphabet.json" assert {type: "json"}
 import languageData from "./data/language.json" assert {type: "json"}
+import { Stored } from './stored';
 
 /** todo
- * update alphabet and material when updating language
+ * language saves in localstorage but you cant select first item? make it so that the first item in the select is
+ *      the current language selected
  * add support for arabic, cyrillic, sanskrit, greek, devanagari, hebrew, farsi, thai, urdu 
  */
 
@@ -47,9 +49,6 @@ class AlphabetQuiz {
   Initialize() {
     this.KeyboardInputChecker()
     this.ClickChecker()
-    this.setCurrentLanguage()
-    this.setCurrentAlphabet()
-    this.setCurrentMaterial() 
     this._eventListeners()
     this.StartQuiz()
   }
@@ -62,6 +61,9 @@ class AlphabetQuiz {
   StartQuiz() {
     this.progress = 0;
     this.correct = 0;
+    this.setCurrentLanguage()
+    this.setCurrentAlphabet()
+    this.setCurrentMaterial() 
     this.ShowCurrentCharacter()
   }
 
@@ -145,8 +147,6 @@ class AlphabetQuiz {
 
   setCurrentLanguage() {
     this._removeChildren(this.languageSelect)
-    const defaultOption = document.createElement("option")
-    defaultOption.innerText = this.targetLanguage.Language
     for (let i = 0; i < Object.keys(alphabetData).length; i++) {
       const language = Object.keys(alphabetData)[i]
       const option = document.createElement("option")
@@ -183,28 +183,31 @@ class AlphabetQuiz {
 
   _updateCurrentLanguage(name: string) {
     this.targetLanguage =   languageData[name] as Languages
-    console.log(this.targetLanguage)
     this.currentAlphabet = this.targetLanguage.alphabets[0]
-    console.log(this.currentAlphabet)
     this.currentMaterial = this.targetLanguage.Parts[0]
-    console.log(this.currentMaterial)
+    storedData.SetLanguage(name)
+    storedData.SetAlphabet(this.currentAlphabet)
+    storedData.SetMaterial(this.currentMaterial)
     this._updateData()
     this.StartQuiz();
   }
 
   _updateCurrentAlphabet(name: string) {
     this.currentAlphabet = name;
+    storedData.SetAlphabet(this.currentAlphabet)
     this._updateData();
     this.StartQuiz();
   }
 
   _updateCurrentMaterial(name: string) {
+    storedData.SetMaterial(name)
     this.currentMaterial = name;
     this._updateData();
     this.StartQuiz();
   }
 
   _removeChildren(domElement: HTMLElement) {
+    console.log("removing child of " + domElement.className)
     let child = domElement.lastElementChild;
     while (child) {
       domElement.removeChild(child);
@@ -213,5 +216,13 @@ class AlphabetQuiz {
   }
 }
 
-const Quiz = new AlphabetQuiz(languageData["japanese"] as Languages, alphabetData, languageData.japanese.alphabets[0])
+const storedData = new Stored()
+const language = storedData.GetLanguage() 
+const alphabet = storedData.GetAlphabet()
+const material = storedData.GetMaterial()
+storedData.SetLanguage(language != "" ? language : languageData['japanese'].Language)
+storedData.SetAlphabet(alphabet != "" ? alphabet : languageData.japanese.alphabets[0])
+storedData.SetMaterial(material != "" ? material : languageData.japanese.Parts[0])
+
+const Quiz = new AlphabetQuiz(languageData[storedData.GetLanguage()] as Languages, alphabetData, storedData.GetAlphabet())
 Quiz.Initialize()
