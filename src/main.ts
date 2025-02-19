@@ -196,8 +196,10 @@ class AlphabetQuiz {
         this._removeChildren(this.alphabetSelect);
         const defaultOption = document.createElement('option');
         defaultOption.innerText = this.currentAlphabet;
+        this.alphabetSelect.appendChild(defaultOption);
         for (const alphabet of this.targetLanguage.alphabets) {
             const option = document.createElement('option');
+            if (alphabet == this.currentAlphabet) continue;
             option.innerText = alphabet;
             option.value = alphabet;
             this.alphabetSelect.append(option);
@@ -207,9 +209,11 @@ class AlphabetQuiz {
     setCurrentMaterial() {
         this._removeChildren(this.materialSelect);
         const defaultOption = document.createElement('option');
-        defaultOption.innerText = this.targetLanguage.Parts[0];
+        defaultOption.innerText = this.currentMaterial;
+        this.materialSelect.appendChild(defaultOption);
         for (const item of this.targetLanguage.Parts) {
             const option = document.createElement('option');
+            if (item == this.currentMaterial) continue;
             option.innerText = item;
             option.value = item;
             this.materialSelect.append(option);
