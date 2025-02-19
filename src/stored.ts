@@ -32,5 +32,20 @@ export class Stored {
             if (item === null) return ""
             return item
       }
+
+      SetTheme(theme: string){
+            localStorage.setItem("theme", theme)
+      }
+
+      GetTheme(): "light" | "dark" | ""  {
+            let item = localStorage.getItem("theme")
+            if (item === null) return ""
+            if (item == "light" || item == "dark") {
+                  return item
+            }
+            else {
+                  return ""
+            }
+      }
       
 }

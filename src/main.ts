@@ -9,6 +9,15 @@ import { Stored } from './stored';
  * add support for arabic, cyrillic, sanskrit, greek, devanagari, hebrew, farsi, thai, urdu 
  */
 
+function updateTheme(theme: "light" | "dark" | "") {
+  if (theme == "light")
+  {
+    document.body.classList.remove("dark-mode")
+  } else if (theme == "dark"){ 
+    document.body.className = "dark-mode"
+  }
+}
+
 function toggleLightMode() {
   document.body.classList.toggle("dark-mode");
 }
@@ -139,6 +148,7 @@ class AlphabetQuiz {
 
   _eventListeners() {
     this.languageSelect.addEventListener("change", (e) => {
+      console.log(e.target.value)
       this._updateCurrentLanguage((e.target as HTMLSelectElement).value)
     })
 
@@ -157,8 +167,12 @@ class AlphabetQuiz {
 
   setCurrentLanguage() {
     this._removeChildren(this.languageSelect)
+    const defaultLanguage = document.createElement("option")
+    defaultLanguage.innerText = this.targetLanguage.Language
+    this.languageSelect.append(defaultLanguage)
     for (let i = 0; i < Object.keys(alphabetData).length; i++) {
       const language = Object.keys(alphabetData)[i]
+      if (language === this.targetLanguage.Language) continue;
       const option = document.createElement("option")
       option.innerText = language;
       option.value = language;
@@ -230,9 +244,12 @@ const storedData = new Stored()
 const language = storedData.GetLanguage() 
 const alphabet = storedData.GetAlphabet()
 const material = storedData.GetMaterial()
+const theme = storedData.GetTheme()
 storedData.SetLanguage(language != "" ? language : languageData['japanese'].Language)
 storedData.SetAlphabet(alphabet != "" ? alphabet : languageData.japanese.alphabets[0])
 storedData.SetMaterial(material != "" ? material : languageData.japanese.Parts[0])
+storedData.SetTheme(theme != "" ? theme : "light")
+updateTheme(storedData.GetTheme())
 
 const Quiz = new AlphabetQuiz(languageData[storedData.GetLanguage()] as Languages, alphabetData, storedData.GetAlphabet())
 Quiz.Initialize()
