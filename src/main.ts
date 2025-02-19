@@ -10,16 +10,24 @@ import { Stored } from './stored';
  */
 
 function updateTheme(theme: "light" | "dark" | "") {
+  if (theme === "") return
   if (theme == "light")
   {
     document.body.classList.remove("dark-mode")
   } else if (theme == "dark"){ 
     document.body.className = "dark-mode"
   }
+  storedData.SetTheme(theme)
 }
 
 function toggleLightMode() {
   document.body.classList.toggle("dark-mode");
+  let currentTheme = storedData.GetTheme();
+  if (currentTheme === "light") {
+    storedData.SetTheme("dark")
+  } else if (currentTheme === "dark") {
+    storedData.SetTheme("light")
+  }
 }
 
 class AlphabetQuiz {
@@ -148,7 +156,6 @@ class AlphabetQuiz {
 
   _eventListeners() {
     this.languageSelect.addEventListener("change", (e) => {
-      console.log(e.target.value)
       this._updateCurrentLanguage((e.target as HTMLSelectElement).value)
     })
 
@@ -249,6 +256,7 @@ storedData.SetLanguage(language != "" ? language : languageData['japanese'].Lang
 storedData.SetAlphabet(alphabet != "" ? alphabet : languageData.japanese.alphabets[0])
 storedData.SetMaterial(material != "" ? material : languageData.japanese.Parts[0])
 storedData.SetTheme(theme != "" ? theme : "light")
+console.log(storedData.GetTheme())
 updateTheme(storedData.GetTheme())
 
 const Quiz = new AlphabetQuiz(languageData[storedData.GetLanguage()] as Languages, alphabetData, storedData.GetAlphabet())
