@@ -53,7 +53,7 @@ class AlphabetQuiz {
         this.content = document.querySelector('#app') as HTMLElement;
         this.targetLanguage = targetLanguage;
         this.currentAlphabet = currentAlphabet;
-        this.currentMaterial = targetLanguage.Parts[0];
+        this.currentMaterial = storedData.GetMaterial();
         this.alphabet = alphabet;
         this.progress = 0;
         this.correct = 0;
@@ -239,8 +239,8 @@ class AlphabetQuiz {
     }
 
     _updateCurrentMaterial(name: string) {
-        storedData.SetMaterial(name);
         this.currentMaterial = name;
+        storedData.SetMaterial(this.currentMaterial);
         this._updateData();
         this.StartQuiz();
     }
@@ -264,7 +264,6 @@ storedData.SetLanguage(language != '' ? language : languageData['japanese'].Lang
 storedData.SetAlphabet(alphabet != '' ? alphabet : languageData.japanese.alphabets[0]);
 storedData.SetMaterial(material != '' ? material : languageData.japanese.Parts[0]);
 storedData.SetTheme(theme != '' ? theme : 'light');
-console.log(storedData.GetTheme());
 updateTheme(storedData.GetTheme());
 
 const Quiz = new AlphabetQuiz(languageData[storedData.GetLanguage()] as Languages, alphabetData, storedData.GetAlphabet());

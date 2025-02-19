@@ -7,6 +7,6 @@
     "korean": {
         "Language": "korean",
         "alphabets": ["hangul"],
-        "Parts": ["vowels", "basics"]
+        "Parts": ["vowels"]
     }
 }
