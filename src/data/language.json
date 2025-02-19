@@ -1,7 +1,7 @@
 {
     "japanese": {
         "Language": "japanese",
-        "alphabets": ["hiragana", "hatakana"],
+        "alphabets": ["hiragana", "katakana"],
         "Parts": ["vowels", "basics", "dakuten", "handakuten"]
     },
     "korean": {
