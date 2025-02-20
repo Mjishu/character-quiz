@@ -2,32 +2,14 @@ import './style.css';
 import alphabetData from './data/alphabet.json' assert { type: 'json' };
 import languageData from './data/language.json' assert { type: 'json' };
 import { Stored } from './stored';
+import { updateTheme, toggleLightMode } from './helper';
+import { Navbar } from './components/Navbar';
 
 /** todo
  * language saves in localstorage but you cant select first item? make it so that the first item in the select is
  *      the current language selected
  * add support for arabic, cyrillic, sanskrit, greek, devanagari, hebrew, farsi, thai, urdu
  */
-
-function updateTheme(theme: 'light' | 'dark' | '') {
-    if (theme === '') return;
-    if (theme == 'light') {
-        document.body.classList.remove('dark-mode');
-    } else if (theme == 'dark') {
-        document.body.className = 'dark-mode';
-    }
-    storedData.SetTheme(theme);
-}
-
-function toggleLightMode() {
-    document.body.classList.toggle('dark-mode');
-    let currentTheme = storedData.GetTheme();
-    if (currentTheme === 'light') {
-        storedData.SetTheme('dark');
-    } else if (currentTheme === 'dark') {
-        storedData.SetTheme('light');
-    }
-}
 
 class AlphabetQuiz {
     content: HTMLElement;
@@ -46,11 +28,12 @@ class AlphabetQuiz {
     languageSelect: HTMLElement;
     alphabetSelect: HTMLElement;
     materialSelect: HTMLElement;
-    displayToggle: HTMLElement;
     progressParent: HTMLElement;
+    navbar: Navbar;
 
     constructor(targetLanguage: Languages, alphabet: any, currentAlphabet: string) {
         this.content = document.querySelector('#app') as HTMLElement;
+        this.navbar = new Navbar(document.body);
         this.targetLanguage = targetLanguage;
         this.currentAlphabet = currentAlphabet;
         this.currentMaterial = storedData.GetMaterial();
@@ -66,11 +49,11 @@ class AlphabetQuiz {
         this.languageSelect = document.querySelector('#language-select') as HTMLElement;
         this.alphabetSelect = document.querySelector('#alphabet-select') as HTMLElement;
         this.materialSelect = document.querySelector('#material-select') as HTMLElement;
-        this.displayToggle = document.querySelector('#toggle-display') as HTMLElement;
         this.progressParent = document.querySelector('#progress-parent') as HTMLElement;
     }
 
     Initialize() {
+        this.navbar.initialize();
         this.KeyboardInputChecker();
         this.ClickChecker();
         this._eventListeners();
@@ -171,10 +154,6 @@ class AlphabetQuiz {
         this.materialSelect.addEventListener('change', (e) => {
             this._updateCurrentMaterial((e.target as HTMLSelectElement).value);
         });
-
-        this.displayToggle.addEventListener('click', () => {
-            toggleLightMode();
-        });
     }
 
     setCurrentLanguage() {
@@ -264,7 +243,7 @@ storedData.SetLanguage(language != '' ? language : languageData['japanese'].Lang
 storedData.SetAlphabet(alphabet != '' ? alphabet : languageData.japanese.alphabets[0]);
 storedData.SetMaterial(material != '' ? material : languageData.japanese.Parts[0]);
 storedData.SetTheme(theme != '' ? theme : 'light');
-updateTheme(storedData.GetTheme());
+updateTheme(document.body, storedData.GetTheme());
 
 const Quiz = new AlphabetQuiz(languageData[storedData.GetLanguage()] as Languages, alphabetData, storedData.GetAlphabet());
 Quiz.Initialize();

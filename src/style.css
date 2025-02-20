@@ -1,58 +1,65 @@
 :root {
-      --dark-color: #393939;
-      --light-color: #eee;
+    --dark-color: #393939;
+    --light-color: #eee;
 }
 
-html,body {
-      margin: 0;
-      padding: 0;
+html,
+body {
+    margin: 0;
+    padding: 0;
 }
 
 body {
-      background-color: var(--light-color);
-      color: var(--dark-color);
+    background-color: var(--light-color);
+    color: var(--dark-color);
 }
 
 .dark-mode {
-      background: var(--dark-color);
-      color: var(--light-color);
+    background: var(--dark-color);
+    color: var(--light-color);
 }
 
 select {
-      width: 7rem;
-      height: 2rem;
-      font-size: 1.15rem;
+    width: 7rem;
+    height: 2rem;
+    font-size: 1.15rem;
 }
 
 #app {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
 }
 
 .quiz-selector {
-      display: flex;
-      flex-direction: row;
-      gap: .5rem;
-      justify-content: center;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    justify-content: center;
 }
 
 .quiz-content {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
 }
 
 #target-character {
-      font-size: 56px;
+    font-size: 56px;
 }
 
 #user-input {
-      width: 12rem;
-      height: 1.5rem;
-      border-radius: 5px;
-      border: 1px solid black;
+    width: 12rem;
+    height: 1.5rem;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+#navbar {
+    width: 50vw;
+    position: absolute;
+    top: 1rem;
 }
