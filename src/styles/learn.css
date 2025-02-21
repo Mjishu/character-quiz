@@ -1,0 +1,36 @@
+:root {
+    --dark-color: #393939;
+    --dark-hover-color: #2a2a2a;
+    --light-color: #eee;
+}
+
+.course-parent {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 75vw;
+    padding: 5rem 0;
+    justify-content: center;
+}
+
+.lesson-holder {
+    background: none;
+    border: 1px solid var(--dark-hover-color);
+    color: 1px solid var(--light-color);
+    border-radius: 5px;
+    width: 20rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition:
+        100ms ease-in color,
+        150ms ease-in background,
+        100ms ease-out border;
+}
+
+.lesson-holder:hover {
+    background: var(--dark-hover-color);
+    border: 1px solid var(--light-color);
+}
