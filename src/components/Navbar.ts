@@ -1,5 +1,5 @@
-import { toggleLightMode, updateTheme } from '../helper';
-import { Stored } from '../stored';
+import { toggleLightMode } from '../helper';
+// import { Stored } from '../stored';
 
 export class Navbar {
     content: HTMLElement;

@@ -12,11 +12,20 @@ body {
 body {
     background-color: var(--light-color);
     color: var(--dark-color);
+    transition:
+        100ms ease-in background-color,
+        150ms ease-out color;
 }
 
 .dark-mode {
     background: var(--dark-color);
     color: var(--light-color);
+}
+
+a {
+    font-style: inherit;
+    text-decoration: none;
+    color: inherit;
 }
 
 select {

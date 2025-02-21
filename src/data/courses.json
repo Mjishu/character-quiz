@@ -1,0 +1,32 @@
+{
+    "japanese": {
+        "hiragana": [
+            {
+                "title": "Intro to Hiragana",
+                "order": 0,
+                "content": {}
+            },
+            {
+                "title": "Vowels",
+                "order": 1,
+                "content": {}
+            }
+        ],
+        "katakana": [
+            {
+                "title": "Intro to Katakana",
+                "order": 0,
+                "content": {}
+            }
+        ]
+    },
+    "korean": {
+        "hangul": [
+            {
+                "title": "Intro to Hangul",
+                "order": 0,
+                "content": {}
+            }
+        ]
+    }
+}

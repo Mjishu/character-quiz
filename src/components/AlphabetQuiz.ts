@@ -1,9 +1,9 @@
-import './style.css';
-import alphabetData from './data/alphabet.json' assert { type: 'json' };
-import languageData from './data/language.json' assert { type: 'json' };
-import { Stored } from './stored';
-import { updateTheme, toggleLightMode } from './helper';
-import { Navbar } from './components/Navbar';
+import '../style.css';
+import alphabetData from '../data/alphabet.json' assert { type: 'json' };
+import languageData from '../data/language.json' assert { type: 'json' };
+import { Stored } from '../stored';
+import { updateTheme } from '../helper';
+import { Navbar } from './Navbar';
 
 /** todo
  * language saves in localstorage but you cant select first item? make it so that the first item in the select is
