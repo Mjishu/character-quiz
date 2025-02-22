@@ -4,19 +4,19 @@
             {
                 "title": "Intro to Hiragana",
                 "order": 0,
-                "content": {}
+                "content": ""
             },
             {
                 "title": "Vowels",
                 "order": 1,
-                "content": {}
+                "content": ""
             }
         ],
         "katakana": [
             {
                 "title": "Intro to Katakana",
                 "order": 0,
-                "content": {}
+                "content": ""
             }
         ]
     },
@@ -25,7 +25,7 @@
             {
                 "title": "Intro to Hangul",
                 "order": 0,
-                "content": {}
+                "content": ""
             }
         ]
     }

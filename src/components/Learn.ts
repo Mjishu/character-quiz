@@ -2,15 +2,26 @@ import '../styles/learn.css';
 import { Stored } from '../stored';
 import { Navbar } from './Navbar';
 import { updateTheme } from '../helper';
-import courseData from '../data/courses.json';
+import courseData from '../data/courses.json' assert { type: 'json' };
 
 class Learn {
     content: HTMLElement;
+    lessonGrandparent: HTMLElement;
     navbar: Navbar;
+    progress: number;
+    language: string;
+    alphabet: string;
+    _lessons: Lesson[];
 
     constructor() {
         this.content = document.querySelector('#app') as HTMLElement;
+        this.lessonGrandparent = document.querySelector('#lesson-grandparent') as HTMLElement;
         this.navbar = new Navbar(document.body);
+        this.progress = 0;
+        this.language = storedData.GetLanguage();
+        this.alphabet = storedData.GetAlphabet();
+        // language -> alphabet
+        this._lessons = courseData[this.language][this.alphabet];
     }
 
     initialize() {
@@ -39,14 +50,16 @@ class Learn {
 
         lessonHolder.addEventListener('click', () => {
             courseParent.innerHTML = '';
-            this._chooseAlphabet(courseParent, lessonName, index);
+            storedData.SetLanguage(lessonName);
+            this._chooseAlphabet(courseParent, index);
         });
     }
 
-    _chooseAlphabet(parent: HTMLElement, language: string, lessonNumber: number) {
+    _chooseAlphabet(parent: HTMLElement, lessonNumber: number) {
         const alphabets = Object.keys(Object.values(courseData)[lessonNumber]);
         if (alphabets.length <= 1) {
-            console.log('just one alphabet');
+            // set current language to hangul
+            storedData.SetAlphabet(alphabets[0]);
         } else {
             this._alphabetDisplay(parent, alphabets);
         }
@@ -55,18 +68,66 @@ class Learn {
     _alphabetDisplay(parent: HTMLElement, alphabets: string[]) {
         for (const alphabet of alphabets) {
             const button = document.createElement('button');
-            button.className = 'select-alphabet-button';
+            button.className = 'select-alphabet-button lesson-holder';
             button.innerText = alphabet;
             button.addEventListener('click', () => {
                 parent.innerHTML = '';
-                this._startLessons(alphabet);
+                storedData.SetAlphabet(alphabet);
+                this._lessonInformation();
             });
             parent.appendChild(button);
         }
     }
 
-    _startLessons(alphabet: string) {
-        alert('starting ' + alphabet + ' lessons');
+    _lessonInformation() {
+        this.lessonGrandparent.innerHTML = '';
+        const currentLesson = this._lessons[this.progress];
+        if (currentLesson.order != this.progress) alert('incorrect order');
+
+        const lessonParent = document.createElement('div');
+        const lessonTitle = document.createElement('h3');
+        const lessonBody = document.createElement('div');
+
+        lessonParent.className = 'lesson-parent';
+        lessonTitle.innerText = currentLesson.title;
+        lessonBody.innerText = currentLesson.content;
+
+        lessonParent.append(lessonTitle, lessonBody);
+        this.lessonGrandparent.append(lessonParent);
+    }
+
+    _navigationButtons() {
+        const buttons = ['previous', 'next'];
+        for (const button of buttons) {
+            const domButton = document.createElement('button');
+            domButton.id = button;
+            domButton.className = 'navigation-button';
+            domButton.addEventListener('click', () => {
+                this._navigate(button);
+            });
+            // todo append button to somewhere in the DOM
+        }
+    }
+
+    _navigate(direction: string) {
+        if (direction === 'next') {
+            if (this.progress < this._lessons.length) {
+                this.progress++;
+            }
+        } else if (direction === 'previous') {
+            if (this.progress > 0) {
+                this.progress--;
+            }
+        }
+        this._lessonInformation();
+    }
+
+    _updateLanguages(language: string, alphabet: string) {
+        this.language = language;
+        this.alphabet = alphabet;
+        this._lessons = courseData[language][alphabet];
+        storedData.SetLanguage(language);
+        storedData.SetAlphabet(alphabet);
     }
 }
 

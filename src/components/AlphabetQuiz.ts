@@ -99,6 +99,7 @@ class AlphabetQuiz {
 
     Answer() {
         this.inputSelector.value = '';
+        this.progressParent.innerHTML = `<p>${this.progress + 1}/${this.alphabetLength}</p>`;
         if (this.progress == this.alphabetLength - 1) {
             this._showProgress();
             return;
@@ -119,7 +120,7 @@ class AlphabetQuiz {
         const close = document.createElement('button');
         close.innerText = 'Close';
         close.addEventListener('click', () => {
-            popup.hidden = true;
+            window.location.href = '/';
         });
         const replay = document.createElement('button');
         replay.innerText = 'Replay';

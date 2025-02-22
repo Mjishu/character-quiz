@@ -14,6 +14,12 @@ global {
         alphabets: string[];
         flag_src?: string;
     };
+
+    type Lesson = {
+        title: string;
+        order: number;
+        content: string;
+    };
 }
 
 export {};
