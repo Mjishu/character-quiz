@@ -1,3 +1,4 @@
+import "../styles/quiz.css"
 import '../style.css';
 import alphabetData from '../data/alphabet.json' assert { type: 'json' };
 import languageData from '../data/language.json' assert { type: 'json' };
@@ -98,6 +99,9 @@ class AlphabetQuiz {
     }
 
     Answer() {
+        setTimeout(() => {
+            this.inputSelector.className = "";
+        }, 500);
         this.inputSelector.value = '';
         this.progressParent.innerHTML = `<p>${this.progress + 1}/${this.alphabetLength}</p>`;
         if (this.progress == this.alphabetLength - 1) {
@@ -134,9 +138,10 @@ class AlphabetQuiz {
     CheckAnswer() {
         const userInput = this.inputSelector.value;
         if (userInput == this.alphabetData[this.progress].English) {
+            this.inputSelector.className = "correct-input";
             this.correct++;
         } else {
-            console.warn('Incorrect!');
+            this.inputSelector.className = "incorrect-input";
         }
         this.Answer();
     }

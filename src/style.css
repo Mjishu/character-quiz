@@ -1,6 +1,8 @@
 :root {
     --dark-color: #393939;
     --light-color: #eee;
+    --correct: #2d8b3a;
+    --incorrect: #ff000e;
 }
 
 html,
@@ -34,6 +36,11 @@ select {
     font-size: 1.15rem;
 }
 
+input:focus {
+    outline: none;
+    box-shadow: 0 3px 10px .5px #46484b7a;
+  }
+
 #app {
     display: flex;
     flex-direction: column;
@@ -64,7 +71,16 @@ select {
     width: 12rem;
     height: 1.5rem;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 2px solid black;
+    transition: 150ms ease-in-out border;
+}
+
+.correct-input {
+    border: 2px solid var(--correct) !important;
+}
+
+.incorrect-input {
+    border: 2px solid var(--incorrect) !important;
 }
 
 #navbar {
