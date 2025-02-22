@@ -122,7 +122,7 @@ class AlphabetQuiz {
         const scoreResult = document.createElement('h3');
         scoreResult.innerText = this.correct + '/' + this.alphabetLength;
         const close = document.createElement('button');
-        close.innerText = 'Close';
+        close.innerText = 'Home';
         close.addEventListener('click', () => {
             window.location.href = '/';
         });

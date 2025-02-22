@@ -81,6 +81,7 @@ class Learn {
     }
 
     _lessonInformation() {
+        this.lessonGrandparent.hidden = false;
         this.lessonGrandparent.innerHTML = '';
         const currentLesson = this._lessons[this.progress];
         if (currentLesson.order != this.progress) alert('incorrect order');
@@ -117,7 +118,7 @@ class Learn {
 
     _navigate(direction: string) {
         if (direction === 'next') {
-            if (this.progress < this._lessons.length) {
+            if (this.progress < this._lessons.length - 1) {
                 this.progress++;
             }
         } else if (direction === 'previous') {

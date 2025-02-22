@@ -16,7 +16,7 @@
 .lesson-holder {
     background: none;
     border: 1px solid var(--dark-hover-color);
-    color: 1px solid var(--light-color);
+    color: inherit;
     border-radius: 5px;
     width: 20rem;
     height: 10rem;
@@ -33,6 +33,7 @@
 .lesson-holder:hover {
     background: var(--dark-hover-color);
     border: 1px solid var(--light-color);
+    color: var(--light-color);
 }
 
 .lesson-parent p {
