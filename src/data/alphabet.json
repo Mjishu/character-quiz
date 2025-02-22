@@ -4,189 +4,235 @@
             "vowels": [
                 {
                     "Target": "あ",
-                    "English": "a"
+                    "English": "a",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/a.mp3"
                 },
                 {
                     "Target": "い",
-                    "English": "i"
+                    "English": "i",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/i.mp3"
                 },
                 {
                     "Target": "う",
-                    "English": "u"
+                    "English": "u",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/u.mp3"
                 },
                 {
                     "Target": "え",
-                    "English": "e"
+                    "English": "e",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/e.mp3"
                 },
                 {
                     "Target": "お",
-                    "English": "o"
+                    "English": "o",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/o.mp3"
                 }
             ],
             "basics": [
                 {
                     "Target": "か",
-                    "English": "ka"
+                    "English": "ka",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ka.mp3"
                 },
                 {
                     "Target": "き",
-                    "English": "ki"
+                    "English": "ki",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ki.mp3"
                 },
                 {
                     "Target": "く",
-                    "English": "ku"
+                    "English": "ku",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ku.mp3"
                 },
                 {
                     "Target": "け",
-                    "English": "ke"
+                    "English": "ke",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ke.mp3"
                 },
                 {
                     "Target": "こ",
-                    "English": "ko"
+                    "English": "ko",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ko.mp3"
                 },
                 {
                     "Target": "た",
-                    "English": "ta"
+                    "English": "ta",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ta.mp3"
                 },
                 {
                     "Target": "ち",
-                    "English": "chi"
+                    "English": "chi",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/chi.mp3"
                 },
                 {
                     "Target": "つ",
-                    "English": "tsu"
+                    "English": "tsu",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/tsu.mp3"
                 },
                 {
                     "Target": "て",
-                    "English": "te"
+                    "English": "te",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/te.mp3"
                 },
                 {
                     "Target": "と",
-                    "English": "to"
+                    "English": "to",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/to.mp3"
                 },
                 {
                     "Target": "さ",
-                    "English": "sa"
+                    "English": "sa",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/sa.mp3"
                 },
                 {
                     "Target": "し",
-                    "English": "shi"
+                    "English": "shi",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/shi.mp3"
                 },
                 {
                     "Target": "す",
-                    "English": "su"
+                    "English": "su",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/su.mp3"
                 },
                 {
                     "Target": "せ",
-                    "English": "se"
+                    "English": "se",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/se.mp3"
                 },
                 {
                     "Target": "そ",
-                    "English": "so"
+                    "English": "so",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/so.mp3"
                 },
                 {
                     "Target": "な",
-                    "English": "na"
+                    "English": "na",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/na.mp3"
                 },
                 {
                     "Target": "に",
-                    "English": "ni"
+                    "English": "ni",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ni.mp3"
                 },
                 {
                     "Target": "ぬ",
-                    "English": "nu"
+                    "English": "nu",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/nu.mp3"
                 },
                 {
                     "Target": "ね",
-                    "English": "ne"
+                    "English": "ne",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ne.mp3"
                 },
                 {
                     "Target": "の",
-                    "English": "no"
+                    "English": "no",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/no.mp3"
                 },
                 {
                     "Target": "は",
-                    "English": "ha"
+                    "English": "ha",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ha.mp3"
                 },
                 {
                     "Target": "ひ",
-                    "English": "hi"
+                    "English": "hi",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/hi.mp3"
                 },
                 {
                     "Target": "ふ",
-                    "English": "fu"
+                    "English": "fu",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/fu.mp3"
                 },
                 {
                     "Target": "へ",
-                    "English": "he"
+                    "English": "he",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/he.mp3"
                 },
                 {
                     "Target": "ほ",
-                    "English": "ho"
+                    "English": "ho",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ho.mp3"
                 },
                 {
                     "Target": "ま",
-                    "English": "ma"
+                    "English": "ma",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ma.mp3"
                 },
                 {
                     "Target": "み",
-                    "English": "mi"
+                    "English": "mi",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/mi.mp3"
                 },
                 {
                     "Target": "む",
-                    "English": "mu"
+                    "English": "mu",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/mu.mp3"
                 },
                 {
                     "Target": "め",
-                    "English": "me"
+                    "English": "me",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/me.mp3"
                 },
                 {
                     "Target": "も",
-                    "English": "mo"
+                    "English": "mo",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/mo.mp3"
                 },
                 {
                     "Target": "や",
-                    "English": "ya"
+                    "English": "ya",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ya.mp3"
                 },
                 {
                     "Target": "ゆ",
-                    "English": "yu"
+                    "English": "yu",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/yu.mp3"
                 },
                 {
                     "Target": "よ",
-                    "English": "yo"
+                    "English": "yo",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/yo.mp3"
                 },
                 {
                     "Target": "ら",
-                    "English": "ra"
+                    "English": "ra",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ra.mp3"
                 },
                 {
                     "Target": "り",
-                    "English": "ri"
+                    "English": "ri",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ri.mp3"
                 },
                 {
                     "Target": "る",
-                    "English": "ru"
+                    "English": "ru",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ru.mp3"
                 },
                 {
                     "Target": "れ",
-                    "English": "re"
+                    "English": "re",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/re.mp3"
                 },
                 {
                     "Target": "ろ",
-                    "English": "ro"
+                    "English": "ro",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ro.mp3"
                 },
                 {
                     "Target": "わ",
-                    "English": "wa"
+                    "English": "wa",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/wa.mp3"
                 },
                 {
                     "Target": "を",
-                    "English": "wo"
+                    "English": "wo",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/wo.mp3"
                 },
                 {
                     "Target": "ん",
-                    "English": "n"
+                    "English": "n",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/n.mp3"
                 }
             ],
             "dakuten": [
@@ -298,189 +344,235 @@
             "vowels": [
                 {
                     "Target": "ア",
-                    "English": "a"
+                    "English": "a",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/a.mp3"
                 },
                 {
                     "Target": "イ",
-                    "English": "i"
+                    "English": "i",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/i.mp3"
                 },
                 {
                     "Target": "ウ",
-                    "English": "u"
+                    "English": "u",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/u.mp3"
                 },
                 {
                     "Target": "エ",
-                    "English": "e"
+                    "English": "e",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/e.mp3"
                 },
                 {
                     "Target": "オ",
-                    "English": "o"
+                    "English": "o",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/o.mp3"
                 }
             ],
             "basics": [
                 {
                     "Target": "カ",
-                    "English": "ka"
+                    "English": "ka",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ka.mp3"
                 },
                 {
                     "Target": "キ",
-                    "English": "ki"
+                    "English": "ki",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ki.mp3"
                 },
                 {
                     "Target": "ク",
-                    "English": "ku"
+                    "English": "ku",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ku.mp3"
                 },
                 {
                     "Target": "ケ",
-                    "English": "ke"
+                    "English": "ke",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ke.mp3"
                 },
                 {
                     "Target": "コ",
-                    "English": "ko"
+                    "English": "ko",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ko.mp3"
                 },
                 {
                     "Target": "タ",
-                    "English": "ta"
+                    "English": "ta",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ta.mp3"
                 },
                 {
                     "Target": "チ",
-                    "English": "chi"
+                    "English": "chi",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/chi.mp3"
                 },
                 {
                     "Target": "ツ",
-                    "English": "tsu"
+                    "English": "tsu",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/tsu.mp3"
                 },
                 {
                     "Target": "テ",
-                    "English": "te"
+                    "English": "te",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/te.mp3"
                 },
                 {
                     "Target": "ト",
-                    "English": "to"
+                    "English": "to",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/to.mp3"
                 },
                 {
                     "Target": "サ",
-                    "English": "sa"
+                    "English": "sa",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/sa.mp3"
                 },
                 {
                     "Target": "シ",
-                    "English": "shi"
+                    "English": "shi",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/shi.mp3"
                 },
                 {
                     "Target": "ス",
-                    "English": "su"
+                    "English": "su",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/su.mp3"
                 },
                 {
                     "Target": "セ",
-                    "English": "se"
+                    "English": "se",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/se.mp3"
                 },
                 {
                     "Target": "ソ",
-                    "English": "so"
+                    "English": "so",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/so.mp3"
                 },
                 {
                     "Target": "ナ",
-                    "English": "na"
+                    "English": "na",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/na.mp3"
                 },
                 {
                     "Target": "ニ",
-                    "English": "ni"
+                    "English": "ni",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ni.mp3"
                 },
                 {
                     "Target": "ヌ",
-                    "English": "nu"
+                    "English": "nu",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/nu.mp3"
                 },
                 {
                     "Target": "ネ",
-                    "English": "ne"
+                    "English": "ne",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ne.mp3"
                 },
                 {
                     "Target": "ノ",
-                    "English": "no"
+                    "English": "no",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/no.mp3"
                 },
                 {
                     "Target": "ハ",
-                    "English": "ha"
+                    "English": "ha",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ha.mp3"
                 },
                 {
                     "Target": "ヒ",
-                    "English": "hi"
+                    "English": "hi",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/hi.mp3"
                 },
                 {
                     "Target": "フ",
-                    "English": "fu"
+                    "English": "fu",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/fu.mp3"
                 },
                 {
                     "Target": "ヘ",
-                    "English": "he"
+                    "English": "he",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/he.mp3"
                 },
                 {
                     "Target": "ホ",
-                    "English": "ho"
+                    "English": "ho",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ho.mp3"
                 },
                 {
                     "Target": "マ",
-                    "English": "ma"
+                    "English": "ma",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ma.mp3"
                 },
                 {
                     "Target": "ミ",
-                    "English": "mi"
+                    "English": "mi",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/mi.mp3"
                 },
                 {
                     "Target": "ム",
-                    "English": "mu"
+                    "English": "mu",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/mu.mp3"
                 },
                 {
                     "Target": "メ",
-                    "English": "me"
+                    "English": "me",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/me.mp3"
                 },
                 {
                     "Target": "モ",
-                    "English": "mo"
+                    "English": "mo",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/mo.mp3"
                 },
                 {
                     "Target": "ヤ",
-                    "English": "ya"
+                    "English": "ya",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ya.mp3"
                 },
                 {
                     "Target": "ユ",
-                    "English": "yu"
+                    "English": "yu",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/yu.mp3"
                 },
                 {
                     "Target": "ヨ",
-                    "English": "yo"
+                    "English": "yo",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/yo.mp3"
                 },
                 {
                     "Target": "ラ",
-                    "English": "ra"
+                    "English": "ra",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ra.mp3"
                 },
                 {
                     "Target": "リ",
-                    "English": "ri"
+                    "English": "ri",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ri.mp3"
                 },
                 {
                     "Target": "ル",
-                    "English": "ru"
+                    "English": "ru",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ru.mp3"
                 },
                 {
                     "Target": "レ",
-                    "English": "re"
+                    "English": "re",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/re.mp3"
                 },
                 {
                     "Target": "ロ",
-                    "English": "ro"
+                    "English": "ro",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/ro.mp3"
                 },
                 {
                     "Target": "ワ",
-                    "English": "wa"
+                    "English": "wa",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/wa.mp3"
                 },
                 {
                     "Target": "ヲ",
-                    "English": "wo"
+                    "English": "wo",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/wo.mp3"
                 },
                 {
                     "Target": "ン",
-                    "English": "n"
+                    "English": "n",
+                    "Audio_src": "https://0.tqn.com/z/g/japanese/library/media/audio/n.mp3"
                 }
             ],
             "dakuten": [

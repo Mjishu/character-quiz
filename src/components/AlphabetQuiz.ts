@@ -1,4 +1,4 @@
-import "../styles/quiz.css"
+import '../styles/quiz.css';
 import '../style.css';
 import alphabetData from '../data/alphabet.json' assert { type: 'json' };
 import languageData from '../data/language.json' assert { type: 'json' };
@@ -31,6 +31,7 @@ class AlphabetQuiz {
     materialSelect: HTMLElement;
     progressParent: HTMLElement;
     navbar: Navbar;
+    audioButton: HTMLElement;
 
     constructor(targetLanguage: Languages, alphabet: any, currentAlphabet: string) {
         this.content = document.querySelector('#app') as HTMLElement;
@@ -51,6 +52,7 @@ class AlphabetQuiz {
         this.alphabetSelect = document.querySelector('#alphabet-select') as HTMLElement;
         this.materialSelect = document.querySelector('#material-select') as HTMLElement;
         this.progressParent = document.querySelector('#progress-parent') as HTMLElement;
+        this.audioButton = document.querySelector('#audio-button') as HTMLButtonElement;
     }
 
     Initialize() {
@@ -80,6 +82,9 @@ class AlphabetQuiz {
             if (event.key === 'Enter') {
                 this.CheckAnswer();
             }
+            if (event.key === ' ' || event.key === 'Space') {
+                this._playAudio(this.alphabetData[this.progress]);
+            }
         });
     }
 
@@ -100,7 +105,7 @@ class AlphabetQuiz {
 
     Answer() {
         setTimeout(() => {
-            this.inputSelector.className = "";
+            this.inputSelector.className = '';
         }, 500);
         this.inputSelector.value = '';
         this.progressParent.innerHTML = `<p>${this.progress + 1}/${this.alphabetLength}</p>`;
@@ -138,10 +143,10 @@ class AlphabetQuiz {
     CheckAnswer() {
         const userInput = this.inputSelector.value;
         if (userInput == this.alphabetData[this.progress].English) {
-            this.inputSelector.className = "correct-input";
+            this.inputSelector.className = 'correct-input';
             this.correct++;
         } else {
-            this.inputSelector.className = "incorrect-input";
+            this.inputSelector.className = 'incorrect-input';
         }
         this.Answer();
     }
@@ -159,6 +164,10 @@ class AlphabetQuiz {
 
         this.materialSelect.addEventListener('change', (e) => {
             this._updateCurrentMaterial((e.target as HTMLSelectElement).value);
+        });
+
+        this.audioButton.addEventListener('click', () => {
+            this._playAudio(this.alphabetData[this.progress]);
         });
     }
 
@@ -237,6 +246,15 @@ class AlphabetQuiz {
             domElement.removeChild(child);
             child = domElement.lastElementChild;
         }
+    }
+
+    _playAudio(item: QuizItem) {
+        if (!item.Audio_src) {
+            console.log('no audio');
+            return;
+        }
+        const music = new Audio(item.Audio_src);
+        music.play();
     }
 }
 
