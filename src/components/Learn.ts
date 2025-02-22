@@ -74,6 +74,7 @@ class Learn {
                 parent.innerHTML = '';
                 storedData.SetAlphabet(alphabet);
                 this._lessonInformation();
+                this._navigationButtons();
             });
             parent.appendChild(button);
         }
@@ -86,7 +87,7 @@ class Learn {
 
         const lessonParent = document.createElement('div');
         const lessonTitle = document.createElement('h3');
-        const lessonBody = document.createElement('div');
+        const lessonBody = document.createElement('p');
 
         lessonParent.className = 'lesson-parent';
         lessonTitle.innerText = currentLesson.title;
@@ -98,15 +99,20 @@ class Learn {
 
     _navigationButtons() {
         const buttons = ['previous', 'next'];
+        const buttonParent = document.createElement('div');
+        buttonParent.className = 'button-parent';
         for (const button of buttons) {
             const domButton = document.createElement('button');
             domButton.id = button;
+            domButton.innerText = button;
             domButton.className = 'navigation-button';
             domButton.addEventListener('click', () => {
                 this._navigate(button);
             });
+            buttonParent.append(domButton);
             // todo append button to somewhere in the DOM
         }
+        this.content.appendChild(buttonParent);
     }
 
     _navigate(direction: string) {

@@ -34,3 +34,7 @@
     background: var(--dark-hover-color);
     border: 1px solid var(--light-color);
 }
+
+.lesson-parent p {
+    max-width: 15rem;
+}
