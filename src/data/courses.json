@@ -9,7 +9,12 @@
             {
                 "title": "Vowels",
                 "order": 1,
-                "content": ""
+                "content": "Just like in English, vowels can be found all over Japanese, therefore we will start with them!"
+            },
+            {
+                "title": "A, E, U, I and O",
+                "order": 2,
+                "content": "Aswell as with English the vowels are the same! we have (a, e, i, o and u) which in japanese are (あ、え、い、お、う)"
             }
         ],
         "katakana": [

@@ -32,6 +32,7 @@ class AlphabetQuiz {
     progressParent: HTMLElement;
     navbar: Navbar;
     audioButton: HTMLElement;
+    canListen: boolean;
 
     constructor(targetLanguage: Languages, alphabet: any, currentAlphabet: string) {
         this.content = document.querySelector('#app') as HTMLElement;
@@ -53,6 +54,7 @@ class AlphabetQuiz {
         this.materialSelect = document.querySelector('#material-select') as HTMLElement;
         this.progressParent = document.querySelector('#progress-parent') as HTMLElement;
         this.audioButton = document.querySelector('#audio-button') as HTMLButtonElement;
+        this.canListen = true;
     }
 
     Initialize() {
@@ -249,12 +251,13 @@ class AlphabetQuiz {
     }
 
     _playAudio(item: QuizItem) {
-        if (!item.Audio_src) {
-            console.log('no audio');
+        if (!item.Audio_src || !this.canListen) {
+            console.log('cant Listen');
             return;
         }
         const music = new Audio(item.Audio_src);
         music.play();
+        this.canListen = false;
     }
 }
 
