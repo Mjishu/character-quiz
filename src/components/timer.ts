@@ -4,6 +4,7 @@ export class Timer {
     parent: HTMLElement;
     isOver: boolean;
     onTimerEnd: (() => void) | null;
+    timerStopped: boolean;
 
     constructor(duration: number, parent: HTMLElement) {
         // duration should be in ms
@@ -12,6 +13,7 @@ export class Timer {
         this.parent = parent;
         this.isOver = false;
         this.onTimerEnd = null;
+        this.timerStopped = false;
     }
 
     GetIsOver() {
@@ -27,9 +29,13 @@ export class Timer {
         this.onTimerEnd = callback;
     }
 
+    StopTimer() {
+        this.isOver = true;
+    }
+
     Start() {
         const timerInterval = setInterval(() => {
-            if (this.duration <= 0) {
+            if (this.duration <= 0 || this.isOver) {
                 clearInterval(timerInterval);
                 this.isOver = true;
                 if (this.onTimerEnd) {

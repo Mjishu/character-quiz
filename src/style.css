@@ -3,6 +3,7 @@
     --light-color: #eee;
     --correct: #2d8b3a;
     --incorrect: #ff000e;
+    --dark-hover-color: #2a2a2a;
 }
 
 html,
@@ -39,8 +40,8 @@ select {
 
 input:focus {
     outline: none;
-    box-shadow: 0 3px 10px .5px #46484b7a;
-  }
+    box-shadow: 0 3px 10px 0.5px #46484b7a;
+}
 
 #app {
     display: flex;
@@ -88,4 +89,53 @@ input:focus {
     width: 50vw;
     position: absolute;
     top: 1rem;
+}
+
+#start-quiz-parent {
+    display: flex;
+}
+
+#toggle-display {
+    border: 1px solid #414c4e;
+    background: none;
+    color: #919191;
+    border-radius: 10px;
+}
+
+#audio-button {
+    border: none;
+    background: none;
+}
+#audio-button img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.lesson-holder {
+    background: none;
+    border: 1px solid var(--dark-hover-color);
+    color: inherit;
+    border-radius: 5px;
+    width: 20rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition:
+        100ms ease-in color,
+        150ms ease-in background,
+        100ms ease-out border;
+}
+
+.lesson-holder:hover {
+    background: var(--dark-hover-color);
+    border: 1px solid var(--light-color);
+    color: var(--light-color);
+}
+
+.select-path {
+    display: flex;
+    gap: 1rem;
+    padding-top: 10vh;
 }

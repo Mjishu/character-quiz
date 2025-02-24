@@ -8,8 +8,7 @@ import { Navbar } from './Navbar';
 import { Timer } from '../components/timer';
 
 /** todo
- * language saves in localstorage but you cant select first item? make it so that the first item in the select is
- *      the current language selected
+ * make a start quiz button, currently it starts on load but it shouldnt
  * add support for arabic, cyrillic, sanskrit, greek, devanagari, hebrew, farsi, thai, urdu
  */
 
@@ -36,6 +35,8 @@ class AlphabetQuiz {
     audioButton: HTMLElement;
     canListen: boolean;
     Timer: Timer;
+    startParent: HTMLElement;
+    progressPopup: HTMLElement;
 
     constructor(targetLanguage: Languages, alphabet: any, currentAlphabet: string) {
         this.content = document.querySelector('#app') as HTMLElement;
@@ -60,6 +61,8 @@ class AlphabetQuiz {
         this.audioButton = document.querySelector('#audio-button') as HTMLButtonElement;
         this.canListen = true;
         this.Timer = new Timer(7, this.content, this.quizStarted); // number = seconds
+        this.startParent = document.querySelector('#start-quiz-parent') as HTMLElement;
+        this.progressPopup = document.querySelector('#progress-popup') as HTMLElement;
     }
 
     Initialize() {
@@ -67,7 +70,8 @@ class AlphabetQuiz {
         this.KeyboardInputChecker();
         this.ClickChecker();
         this._eventListeners();
-        this.StartQuiz();
+        this._startButton();
+        this.StartQuiz(false);
     }
 
     _updateData() {
@@ -75,15 +79,28 @@ class AlphabetQuiz {
         this.alphabetLength = this.alphabetData.length;
     }
 
-    StartQuiz() {
-        this.quizStarted = true;
+    _startButton() {
+        const btn = document.createElement('button');
+        btn.className = 'start-button';
+        btn.innerText = 'Start';
+
+        this.startParent.appendChild(btn);
+        btn.addEventListener('click', () => {
+            btn.disabled = true;
+            this.StartQuiz(true);
+        });
+    }
+
+    StartQuiz(isTimer: boolean) {
         this.progress = 0;
         this.correct = 0;
         this.setCurrentLanguage();
         this.setCurrentAlphabet();
         this.setCurrentMaterial();
         this.ShowCurrentCharacter();
-        this.Timer = new Timer(30, this.content);
+        if (!isTimer) return;
+        this.quizStarted = true;
+        this.Timer = new Timer(30, this.startParent);
         this.Timer.setOnTimerEnd(() => {
             this.quizStarted = false;
             this._showProgress();
@@ -94,7 +111,7 @@ class AlphabetQuiz {
     KeyboardInputChecker() {
         document.addEventListener('keydown', (event) => {
             if (!this.quizStarted) return;
-            
+
             if (event.key === 'Enter') {
                 this.CheckAnswer();
             }
@@ -134,13 +151,13 @@ class AlphabetQuiz {
         this.ShowCurrentCharacter();
     }
 
-    _replay(popup: HTMLElement) {
-        popup.hidden = true;
+    _replay() {
         window.location.reload();
     }
 
     _showProgress() {
-        const popup = document.createElement('div');
+        this.Timer.StopTimer();
+        this.progressPopup.innerHTML = '';
         const scoreResult = document.createElement('h3');
         scoreResult.innerText = this.correct + '/' + this.alphabetLength;
         const close = document.createElement('button');
@@ -151,10 +168,9 @@ class AlphabetQuiz {
         const replay = document.createElement('button');
         replay.innerText = 'Replay';
         replay.addEventListener('click', () => {
-            this._replay(popup);
+            this._replay();
         });
-        popup.append(scoreResult, close, replay);
-        this.content.append(popup);
+        this.progressPopup.append(scoreResult, close, replay);
     }
 
     CheckAnswer() {
@@ -239,21 +255,21 @@ class AlphabetQuiz {
         storedData.SetAlphabet(this.currentAlphabet);
         storedData.SetMaterial(this.currentMaterial);
         this._updateData();
-        this.StartQuiz();
+        this._replay();
     }
 
     _updateCurrentAlphabet(name: string) {
         this.currentAlphabet = name;
         storedData.SetAlphabet(this.currentAlphabet);
         this._updateData();
-        this.StartQuiz();
+        this._replay();
     }
 
     _updateCurrentMaterial(name: string) {
         this.currentMaterial = name;
         storedData.SetMaterial(this.currentMaterial);
         this._updateData();
-        this.StartQuiz();
+        this._replay();
     }
 
     _removeChildren(domElement: HTMLElement) {

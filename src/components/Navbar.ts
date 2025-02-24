@@ -23,7 +23,7 @@ export class Navbar {
     createChangeTheme() {
         this.toggleButton.type = 'button';
         this.toggleButton.id = 'toggle-display';
-        this.toggleButton.innerText = 'Display Mode';
+        this.toggleButton.innerText = 'Theme';
         this.navbar.appendChild(this.toggleButton);
     }
 
