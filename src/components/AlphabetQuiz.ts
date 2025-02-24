@@ -5,6 +5,7 @@ import languageData from '../data/language.json' assert { type: 'json' };
 import { Stored } from '../stored';
 import { updateTheme } from '../helper';
 import { Navbar } from './Navbar';
+import { Timer } from '../components/timer';
 
 /** todo
  * language saves in localstorage but you cant select first item? make it so that the first item in the select is
@@ -33,6 +34,7 @@ class AlphabetQuiz {
     navbar: Navbar;
     audioButton: HTMLElement;
     canListen: boolean;
+    Timer: Timer;
 
     constructor(targetLanguage: Languages, alphabet: any, currentAlphabet: string) {
         this.content = document.querySelector('#app') as HTMLElement;
@@ -55,6 +57,7 @@ class AlphabetQuiz {
         this.progressParent = document.querySelector('#progress-parent') as HTMLElement;
         this.audioButton = document.querySelector('#audio-button') as HTMLButtonElement;
         this.canListen = true;
+        this.Timer = new Timer(125, this.content); // number = seconds
     }
 
     Initialize() {
@@ -63,6 +66,7 @@ class AlphabetQuiz {
         this.ClickChecker();
         this._eventListeners();
         this.StartQuiz();
+        this.Timer.Initialize();
     }
 
     _updateData() {
