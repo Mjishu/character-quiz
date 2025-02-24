@@ -15,6 +15,7 @@ import { Timer } from '../components/timer';
 
 class AlphabetQuiz {
     content: HTMLElement;
+    quizStarted: boolean;
     targetLanguage: Languages;
     alphabet: QuizItem[];
     progress: number;
@@ -38,6 +39,7 @@ class AlphabetQuiz {
 
     constructor(targetLanguage: Languages, alphabet: any, currentAlphabet: string) {
         this.content = document.querySelector('#app') as HTMLElement;
+        this.quizStarted = false;
         this.navbar = new Navbar(document.body);
         this.targetLanguage = targetLanguage;
         this.currentAlphabet = currentAlphabet;
@@ -57,7 +59,7 @@ class AlphabetQuiz {
         this.progressParent = document.querySelector('#progress-parent') as HTMLElement;
         this.audioButton = document.querySelector('#audio-button') as HTMLButtonElement;
         this.canListen = true;
-        this.Timer = new Timer(125, this.content); // number = seconds
+        this.Timer = new Timer(7, this.content, this.quizStarted); // number = seconds
     }
 
     Initialize() {
@@ -66,7 +68,6 @@ class AlphabetQuiz {
         this.ClickChecker();
         this._eventListeners();
         this.StartQuiz();
-        this.Timer.Initialize();
     }
 
     _updateData() {
@@ -75,16 +76,25 @@ class AlphabetQuiz {
     }
 
     StartQuiz() {
+        this.quizStarted = true;
         this.progress = 0;
         this.correct = 0;
         this.setCurrentLanguage();
         this.setCurrentAlphabet();
         this.setCurrentMaterial();
         this.ShowCurrentCharacter();
+        this.Timer = new Timer(30, this.content);
+        this.Timer.setOnTimerEnd(() => {
+            this.quizStarted = false;
+            this._showProgress();
+        });
+        this.Timer.Initialize();
     }
 
     KeyboardInputChecker() {
         document.addEventListener('keydown', (event) => {
+            if (!this.quizStarted) return;
+            
             if (event.key === 'Enter') {
                 this.CheckAnswer();
             }
@@ -97,6 +107,7 @@ class AlphabetQuiz {
     ClickChecker() {
         this.inputSubmitSelector.addEventListener('click', (e) => {
             e.preventDefault();
+            if (!this.quizStarted) return;
             this.CheckAnswer();
         });
     }
